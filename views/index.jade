@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p 
+  form#form-checkout
+    input#form-checkout__cardNumber(type='text' name='cardNumber') 
+    br
+    input#form-checkout__cardExpirationDate(type='text' name='cardExpirationDate')
+    br
+    input#form-checkout__cardholderName(type='text' name='cardholderName')
+    br
+    input#form-checkout__cardholderEmail(type='email' name='cardholderEmail')
+    br
+    input#form-checkout__securityCode(type='text' name='securityCode')
+    br
+    select#form-checkout__issuer(name='issuer')
+    br
+    select#form-checkout__identificationType(name='identificationType')
+    br
+    input#form-checkout__identificationNumber(type='text' name='identificationNumber')
+    br
+    select#form-checkout__installments(name='installments')
+    br
+    button#form-checkout__submit(type='submit') Pagar
+    br
+    progress.progress-bar(value='0') Cargando...
+  script(src='https://sdk.mercadopago.com/js/v2')
+  script.
+    const mp = new MercadoPago('TEST-1dbf9fa1-14eb-479c-aa4e-f9be2847d19d');
+  script(src='/javascripts/mercadopago.js')
+    // Add step #3
